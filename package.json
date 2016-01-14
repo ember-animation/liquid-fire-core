@@ -24,8 +24,7 @@
     "ember-cli-htmlbars": "^1.0.1",
     "ember-cli-version-checker": "^1.0.2",
     "ember-getowner-polyfill": "^1.0.0",
-    "match-media": "^0.2.0",
-    "velocity-animate": ">= 0.11.8"
+    "match-media": "^0.2.0"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.0.0",

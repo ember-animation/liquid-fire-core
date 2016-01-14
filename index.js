@@ -14,11 +14,6 @@ module.exports = {
   },
 
   treeForVendor: function(tree){
-    var velocityPath = path.dirname(require.resolve('velocity-animate'));
-    var velocityTree = new Funnel(this.treeGenerator(velocityPath), {
-      srcDir: '/',
-      destDir: 'velocity'
-    });
 
     var matchMediaPath = path.dirname(require.resolve('match-media'));
     var matchMediaTree = new Funnel(this.treeGenerator(matchMediaPath), {
@@ -26,7 +21,7 @@ module.exports = {
       destDir: 'match-media'
     });
 
-    return mergeTrees([tree, velocityTree, matchMediaTree]);
+    return mergeTrees([tree, matchMediaTree]);
   },
 
   included: function(app){
@@ -36,11 +31,9 @@ module.exports = {
     }
 
     if (!process.env.EMBER_CLI_FASTBOOT) {
-      app.import('vendor/velocity/velocity.js');
       app.import('vendor/match-media/matchMedia.js');
     }
 
-    app.import('vendor/liquid-fire.css');
   },
 
   setupPreprocessorRegistry: function(type, registry) {
