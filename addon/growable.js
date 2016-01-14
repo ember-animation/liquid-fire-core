@@ -1,5 +1,6 @@
 import Ember from "ember";
 import Promise from "liquid-fire/promise";
+
 var capitalize = Ember.String.capitalize;
 
 export default Ember.Mixin.create({
@@ -26,13 +27,15 @@ export default Ember.Mixin.create({
     var target = {};
     target['outer'+capitalize(dimension)] = [
       want[dimension],
-      have[dimension],
+      have[dimension]
     ];
-    return Ember.$.Velocity(elt[0], target, {
+
+    return this.get('transitionMap').animate(elt[0], target, {
       duration: this._durationFor(have[dimension], want[dimension]),
       queue: false,
       easing: this.get('growEasing') || this.constructor.prototype.growEasing
     });
+
   },
 
   _durationFor: function(before, after) {

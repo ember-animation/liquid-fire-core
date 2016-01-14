@@ -21,6 +21,10 @@ var TransitionMap = Ember.Service.extend({
     }
   },
 
+  animate(/*element, properties, options*/) {
+    throw new Error("Consuming addons or apps MUST implement liquid-fire-transitions.animate");
+  },
+
   runningTransitions: function() {
     return this.activeCount;
   },
